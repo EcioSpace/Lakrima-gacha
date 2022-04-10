@@ -134,11 +134,11 @@ contract LKMGashaOpener is Ownable {
         }
     }
 
-    function CheckWeapRarity(uint16 _id) internal view returns (uint16) {
+    function checkWeapRarity(uint16 _id) public view returns (uint16) {
         return WEAP_RARITY[_id];
     }
 
-    function CheckSuitRarity(uint16 _id) internal view returns (uint16) {
+    function checkSuitRarity(uint16 _id) public view returns (uint16) {
         return SUIT_RARITY[_id];
     }
 
@@ -198,7 +198,7 @@ contract LKMGashaOpener is Ownable {
                 equipmentRandom
             );
 
-            uint16 bpRarity = CheckSuitRarity(ePartId);
+            uint16 bpRarity = checkSuitRarity(ePartId);
 
             partCode = createBlueprintPartCode(bpRarity, ePartId, _randomType);
         } else if (_randomType == randomType.WEAP) {
@@ -209,7 +209,7 @@ contract LKMGashaOpener is Ownable {
                 equipmentRandom
             );
 
-            uint16 bpRarity = CheckWeapRarity(ePartId);
+            uint16 bpRarity = checkWeapRarity(ePartId);
 
             partCode = createBlueprintPartCode(bpRarity, ePartId, _randomType);
         }
